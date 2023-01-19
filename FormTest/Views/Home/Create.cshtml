@@ -1,0 +1,29 @@
+@model FormTest.Models.Form
+@{
+    ViewBag.Title = "Добавление пользователя";
+}
+<form asp-action="create" asp-controller="home">
+    <div class="form-group">
+        <label asp-for="Fullname" class="control-label">ФИО</label>
+        <input type="text" asp-for="Fullname" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="MobilePhone" class="control-label">Сотовый</label>
+        <input type="number" asp-for="MobilePhone" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email" class="control-label">Почта</label>
+        <input type="text" asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="CompanyName" class="control-label">Название Компании</label>
+        <input type="text" asp-for="CompanyName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Post" class="control-label">Должность</label>
+        <input type="text" asp-for="Post" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Отправить" class="btn btn-default" />
+    </div>
+</form>

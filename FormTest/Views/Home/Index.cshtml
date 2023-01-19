@@ -1,8 +1,12 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<FormTest.Models.Form>
+@{
+    ViewBag.Title = "Все Формы";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<a asp-action="Create">Добавить форму</a>
+<table class="table">
+    <tr><td>ФИО</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr><td>@item.Fullname</td></tr>
+    }
+</table>

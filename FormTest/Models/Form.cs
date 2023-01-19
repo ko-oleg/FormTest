@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FormTest.Models
 {
-    [Keyless]
     public class Form
     {
+        public int Id { get; set; }
         [Required]
         public string Fullname { get; set; }
         [Phone]
