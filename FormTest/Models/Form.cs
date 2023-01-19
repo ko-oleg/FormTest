@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace FormTest.Models
 {
+    [Keyless]
     public class Form
     {
         [Required]
