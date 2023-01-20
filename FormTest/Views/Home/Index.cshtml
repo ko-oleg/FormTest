@@ -2,9 +2,9 @@
 @{
     ViewBag.Title = "Все пользователи";
 }
-<a asp-action="Create">Добавить пользователя</a>
+<a class="btn btn-secondary" asp-action="Create">Добавить пользователя</a>
 <table class="table">
-     
+     <h2 class="m-3">Все формы</h2>
     @foreach (var item in Model)
     {
         <tr><td>@item.Fullname</td>

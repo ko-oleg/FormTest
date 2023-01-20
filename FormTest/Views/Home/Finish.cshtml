@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Финальная страница";
+}
+<div>
+    <h2>Форма успешно создалась</h2>
+    <h2>Всю необходимую информацию отправили на почту</h2>
+</div>
+<div>
+    <form asp-controller="Home" asp-action="GoBackToIndex" method="get">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-secondary" value="Вернуться на главную" />
+                </div>
+            </form>
+</div>

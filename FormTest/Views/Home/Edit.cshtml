@@ -8,10 +8,32 @@
         <input type="text" asp-for="Fullname" class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="Email" class="control-label">Почта</label>
-        <input type="number" asp-for="Email" class="form-control" />
+        <label asp-for="MobilePhone" class="control-label">Телефон</label>
+        <input type="number" asp-for="MobilePhone" class="form-control" />
     </div>
     <div class="form-group">
-        <input type="submit" value="Сохранить" class="btn btn-default" />
+        <label asp-for="Email" class="control-label">Почта</label>
+        <input type="text" asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="CompanyName" class="control-label">Название компании</label>
+        <input type="text" asp-for="CompanyName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Post" class="control-label">Должность</label>
+        <input type="text" asp-for="Post" class="form-control" />
+    </div>
+    <div class="d-inline-flex p-2">
+    <div class="form-group m-2">
+        <input type="submit" value="Сохранить" class="btn btn-secondary" />
+    </div>
+    <form asp-controller="Home" asp-action="GoBackToIndex" method="get">
+        <div class="form-group m-2">
+            <input type="submit" class="btn btn-secondary" value="Вернуться на главную"/>
+        </div>
+    </form>
     </div>
 </form>
+
+
+        

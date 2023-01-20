@@ -26,7 +26,13 @@ namespace FormTest.Controllers
         {
             return View(await db.Forms.ToListAsync());
         }
-        
+        public ViewResult Finish()
+        {
+            return View();
+        }public RedirectToActionResult GoBackToIndex()
+        {
+            return RedirectToAction("Index");
+        }
         public IActionResult Create()
         {
             return View();
@@ -34,11 +40,14 @@ namespace FormTest.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Form form)
         {
-            db.Forms.Add(form);
-            form.Id = db.Forms.Count()+1;
-            await SendMessage(form);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            if (form.Email != null)
+            {
+                db.Forms.Add(form);
+                await SendMessage(form);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Finish"); 
+            }
+            return NotFound();
         }
         
         public async Task<IActionResult> Details(int? id)

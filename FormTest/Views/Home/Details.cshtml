@@ -1,0 +1,36 @@
+@model FormTest.Models.Form
+@{
+    ViewBag.Title = Model.Fullname;
+}
+<div>   
+    <h2>Пользователь @Model.Fullname</h2>
+    <div>
+        <dl class="dl-horizontal">
+            <dt>Идентификатор</dt>
+            <dd>@Model.Id</dd>
+     
+            <dt>Фио</dt>
+            <dd>@Model.Fullname</dd>
+            
+            <dt>Телефон</dt>
+            <dd>@Model.MobilePhone</dd>
+            
+            <dt>Email</dt>
+            <dd>@Model.Email</dd>
+            
+            <dt>Название компании</dt>
+            <dd>@Model.CompanyName</dd>
+            
+            <dt>Должность</dt>
+            <dd>@Model.Post</dd>
+            
+        </dl>
+    </div>
+    
+    <form asp-controller="Home" asp-action="GoBackToIndex" method="get">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-secondary" value="Вернуться на главную" />
+                    </div>
+                </form>
+
+</div>
