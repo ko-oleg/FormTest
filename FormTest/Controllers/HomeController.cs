@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FormTest.Models;
 using Microsoft.EntityFrameworkCore;
+using SocialApp.Services;
 
 namespace FormTest.Controllers
 {
@@ -35,7 +36,26 @@ namespace FormTest.Controllers
         {
             db.Forms.Add(form);
             form.Id = db.Forms.Count()+1;
+            await SendMessage(form);
             await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id != null)
+            {
+                Form form = await db.Forms.FirstOrDefaultAsync(p => p.Id == id);
+                if (form != null)
+                    return View(form);
+            }
+            return NotFound();
+        }
+        
+        public async Task<IActionResult> SendMessage(Form form)
+        {
+            EmailService emailService = new EmailService();
+            await emailService.SendEmailAsync(form.Email, "Создание формы", $"Ваша форма успешно создалась!<p>ФИО: {form.Fullname} <p>Телефон: {form.MobilePhone}<p>Email: {form.Email}<p>Название компании: {form.CompanyName}<p>Должность: {form.Post}");
             return RedirectToAction("Index");
         }
 
